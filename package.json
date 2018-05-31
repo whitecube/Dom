@@ -1,0 +1,25 @@
+{
+  "name": "dom",
+  "version": "1.0.0",
+  "description": "A super lightweight JavaScript Dom manipulator",
+  "main": "dom.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/whiteCube/Dom.git"
+  },
+  "keywords": [
+    "lightweight",
+    "dom",
+    "manipulator",
+    "whitecube"
+  ],
+  "author": "WhiteCube (hello@whitecube.be)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/whiteCube/Dom/issues"
+  },
+  "homepage": "https://github.com/whiteCube/Dom#readme"
+}
