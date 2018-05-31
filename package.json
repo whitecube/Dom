@@ -1,5 +1,5 @@
 {
-  "name": "dom",
+  "name": "whitecube-dom",
   "version": "1.0.0",
   "description": "A super lightweight JavaScript Dom manipulator",
   "main": "dom.js",
