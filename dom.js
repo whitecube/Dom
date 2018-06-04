@@ -14,6 +14,35 @@ export class Dom {
         return new DomElement().create(tag, classes, content, attributes);
     }
 
+    /**
+     * Finds an element
+     * 
+     * @param {string} selector Query selector
+     * @param {HTMLElement} parent The parent node
+     * @returns {DomElement}
+     */
+    static qs(selector, parent = document) {
+        return new DomElement(parent.querySelector(selector));
+    }
+
+    /**
+     * Finds elements
+     * 
+     * @param {string} selector Query selector
+     * @param {HTMLElement} parent The parent node
+     * @returns {DomCollection}
+     */
+    static qsa(selector, parent = document) {
+        let els = parent.querySelectorAll(selector);
+        let items = new DomCollection();
+        for (var i = 0; i < els.length; ++i) {
+            items.add(new DomElement(els[i]));
+        }
+        return items;
+    }
+
+}
+
 export class DomCollection {
     constructor(elements = null) {
         this.els = elements ||  [];
