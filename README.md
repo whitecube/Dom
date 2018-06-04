@@ -38,7 +38,7 @@ The `DomCollection` class wraps multiple DomElements.
 ### Constructor
 ```js 
 new DomCollection(elements = [])
-`
+```
 
 ### Properties
 `DomCollection.els` → An array/nodelist containing the DomElements
