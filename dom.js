@@ -266,6 +266,47 @@ export class DomElement {
     off(event, callback) {
         this.el.removeEventListener(event, callback);
         return this;
+
+    /**
+     * Create a copy of this element
+     * @param {boolean} deep Should we copy the child nodes as well
+     */
+    clone(deep = true) {
+        return new DomElement(this.el.cloneNode(deep));
+    }
+
+    /**
+     * Finds an child element
+     * @param {string} selector Query selector
+     * @returns {DomElement?}
+     */
+    qs(selector) {
+        return Dom.qs(selector, this.el);
+    }
+
+    /**
+     * Finds child elements
+     * @param {string} selector Query selector
+     * @returns {DomCollection}
+     */
+    qsa(selector) {
+        return Dom.qsa(selector, this.el);
+    }
+
+    /**
+     * Get the height of the element
+     * @returns {int}
+     */
+    height() {
+        return this.el.clientHeight;
+    }
+
+    /**
+     * Get the width of the element
+     * @returns {int}
+     */
+    width() {
+        return this.el.clientWidth;
     }
 
 }
