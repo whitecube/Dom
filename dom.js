@@ -14,6 +14,81 @@ export class Dom {
         return new DomElement().create(tag, classes, content, attributes);
     }
 
+export class DomCollection {
+    constructor(elements = null) {
+        this.els = elements ||  [];
+    }
+
+    /**
+     * Add an element to the collection
+     * @param {DomElement|HTMLElement} el The element to add
+     * @returns {this}
+     */
+    add(el) {
+        if (el.constructor.name !== 'DomElement') el = new DomElement(el);
+        this.els.push(el);
+        return this;
+    }
+
+    /**
+     * Iterate over each of the DomElements and run code
+     * @param {callback} callback The code to execute
+     * @param {boolean} reverse Should we loop in reverse
+     * @returns {this}
+     */
+    each(callback, reverse = false) {
+        if (reverse) {
+            for (var i = this.els.length - 1; i >= 0; --i) {
+                callback(this.els[i], i);
+            }
+        } else {
+            for (var i = 0; i < this.els.length; ++i) {
+                callback(this.els[i], i);
+            }
+        }
+        return this;
+    }
+
+    /**
+     * Add event listeners to all elements of the collection
+     * @param {string} event The event to listen for
+     * @param {callback} callback The code to execute
+     * @returns {this}
+     */
+    on(event, callback) {
+        this.each(el => el.on(event, callback));
+        return this;
+    }
+
+    /**
+     * Remove event listeners from all elements of the collection
+     * @param {string} event The event to stop listening for
+     * @param {callback} callback 
+     * @returns {this}
+     */
+    off(event, callback) {
+        this.each(el => el.off(event, callback));
+        return this;
+    }
+
+    /**
+     * Insert this collection into an element
+     * @param {DomElement|HTMLElement} parent The element to insert into
+     * @returns {this}
+     */
+    insertInto(parent) {
+        if (parent.constructor.name == 'DomElement') parent = parent.el;
+        this.each(el => el.insertInto(parent));
+        return this;
+    }
+
+    /**
+     * Returns the amount of items in the collection
+     * @returns {int}
+     */
+    count() {
+        return this.els.length;
+    }
 }
 
 export class DomElement {
