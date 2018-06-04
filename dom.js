@@ -44,8 +44,8 @@ export class Dom {
 }
 
 export class DomCollection {
-    constructor(elements = null) {
-        this.els = elements ||  [];
+    constructor(elements = []) {
+        this.els = elements;
     }
 
     /**
@@ -298,6 +298,7 @@ export class DomElement {
     /**
      * Create a copy of this element
      * @param {boolean} deep Should we copy the child nodes as well
+     * @returns {DomElement}
      */
     clone(deep = true) {
         return new DomElement(this.el.cloneNode(deep));
