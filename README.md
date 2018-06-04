@@ -48,7 +48,7 @@ new DomCollection(elements = [])
 ```js 
 DomCollection.add(el)
 ```
-`param {DomElement|HTMLElement} el` The element to add
+`param {DomElement|HTMLElement} el` The element to add  
 *→ returns `this`*  
 Add an element to the collection.
 
