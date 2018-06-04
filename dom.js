@@ -282,8 +282,7 @@ export class DomElement {
      * @param {callback} callback The actions to perform
      */
     on(event, callback) {
-        this.el.addEventListener(event, callback, false);
-        return this;
+        return this.el.addEventListener(event, callback, false);
     }
 
     /**
@@ -293,8 +292,8 @@ export class DomElement {
      * @returns {this}
      */
     off(event, callback) {
-        this.el.removeEventListener(event, callback);
-        return this;
+        return this.el.removeEventListener(event, callback);
+    }
 
     /**
      * Create a copy of this element
