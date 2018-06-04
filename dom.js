@@ -5,32 +5,59 @@ export class Dom {
      * specified classes and attributes
      * 
      * @param {string} tag The tag name
-     * @param {Array} classes A list of class names
-     * @param {object} attributes Additionnal attributes
+     * @param {array} classes Optional list of class names
+     * @param {string} content Optional text content
+     * @param {object} attributes Optional additionnal attributes
      * @returns {DomElement}
      */
-    static element(tag, classes, attributes) {
-        return new DomElement(tag, classes, attributes);
+    static element(tag, classes, content, attributes) {
+        return new DomElement().create(tag, classes, content, attributes);
     }
 
 }
 
 export class DomElement {
 
-    constructor(tag, classes = [], attributes = {}) {
+    constructor(element = null) {
+        this.el = element;
+        this.classes = element != null ? element.className.split(/\s+/) : [];
+        this.attributes = element ? this.extractAttributes(element) : {};
+    }
+
+    init(content = null) {
+        let el = document.createElement(this.tag);
+        el.textContent = content;
+        this.classes.forEach(className => el.classList.add(className));
+        for (var key in this.attributes) {
+            el.setAttribute(key, this.attributes[key]);
+        }
+        this.el = el;
+    }
+
+    extractAttributes(node) {
+        let attrs = {};
+        for (var i = 0, atts = node.attributes, n = atts.length; i < n; i++) {
+            attrs[atts[i].nodeName] = atts[i].value;
+        }
+        return attrs;
+    }
+
+    /**
+     * Creates a DOM element with the 
+     * specified classes and attributes
+     * 
+     * @param {string} tag The tag name
+     * @param {array} classes Optional list of class names
+     * @param {string} content Optional text content
+     * @param {object} attributes Optional additionnal attributes
+     * @returns {DomElement}
+     */
+    create(tag, classes = [], content = null, attributes = {}) {
         this.tag = tag;
         this.classes = classes;
         this.attributes = attributes;
-        this.init();
-    }
-
-    init() {
-        let el = document.createElement(this.tag);
-        this.classes.forEach(className => el.classList.add(className));
-        for (var key in this.attributes) {
-            el.setAttribute(key, attributes[key]);
-        }
-        this.el = el;
+        this.init(content);
+        return this;
     }
 
     /**
