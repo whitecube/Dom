@@ -182,7 +182,7 @@ export class DomElement {
      * @returns {this}
      */
     removeClass(className) {
-        if(!this.classes.includes(className) || !this.hasClass(className)) return this;
+        if (!this.classes.includes(className) || !this.hasClass(className)) return this;
         this.classes = this.classes.filter(existingClass => existingClass != className);
         this.el.classList.remove(className);
         return this;
@@ -203,7 +203,7 @@ export class DomElement {
      * @returns {this}
      */
     removeAttribute(attribute) {
-        if(!this.attributes[attribute] || !this.hasAttribute(attribute)) return this;
+        if (!this.attributes[attribute] || !this.hasAttribute(attribute)) return this;
         delete this.attributes[attribute];
         this.el.removeAttribute(attribute);
         return this;
