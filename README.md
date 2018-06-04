@@ -36,7 +36,9 @@ The `DomCollection` class wraps multiple DomElements.
 
 
 ### Constructor
-#### `new DomCollection(elements = [])`
+```js 
+new DomCollection(elements = [])
+`
 
 ### Properties
 `DomCollection.els` → An array/nodelist containing the DomElements
@@ -104,7 +106,9 @@ The `DomElement` class is a container for a single dom element.
 Most of the following methods return `this` to allow method chaining.  
 
 ### Constructor
-#### `new DomElement(element = null)`
+```js 
+new DomElement(element = null)
+```
 
 ### Properties
 `DomElement.tag` → the tag name of this element  
