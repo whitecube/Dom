@@ -124,7 +124,7 @@ export class DomElement {
 
     constructor(element = null) {
         this.el = element;
-        this.classes = element != null ? element.className.split(/\s+/) : [];
+        this.classes = (element != null && element.className != null) ? element.className.split(/\s+/) : [];
         this.attributes = element ? this.extractAttributes(element) : {};
     }
 
