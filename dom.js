@@ -54,7 +54,7 @@ export class DomCollection {
      * @returns {this}
      */
     add(el) {
-        if (el.constructor.name !== 'DomElement') el = new DomElement(el);
+        if (!el instanceof DomElement) el = new DomElement(el);
         this.els.push(el);
         return this;
     }
@@ -106,7 +106,7 @@ export class DomCollection {
      * @returns {this}
      */
     insertInto(parent) {
-        if (parent.constructor.name == 'DomElement') parent = parent.el;
+        if (parent instanceof DomElement) parent = parent.el;
         this.each(el => el.insertInto(parent));
         return this;
     }
