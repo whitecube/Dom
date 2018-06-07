@@ -1,6 +1,6 @@
 {
   "name": "whitecube-dom",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A super lightweight JavaScript Dom manipulator",
   "main": "dom.js",
   "scripts": {
