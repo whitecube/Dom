@@ -1,6 +1,6 @@
 {
   "name": "whitecube-dom",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "A super lightweight JavaScript Dom manipulator",
   "main": "dist/dom.js",
   "scripts": {
@@ -25,7 +25,7 @@
     "url": "https://github.com/whiteCube/Dom/issues"
   },
   "homepage": "https://github.com/whiteCube/Dom#readme",
-  "dependencies": {
+  "devDependencies": {
     "laravel-mix": "^3.0.0"
   }
 }
